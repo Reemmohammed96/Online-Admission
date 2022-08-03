@@ -1,0 +1,1812 @@
+<div class="container-fluid landlord  ">
+    <div class=" w-75 mb-5 ">
+        <h1 class=" landlord-h   font-weight-bold text-white w-50">
+            Online Admission
+        </h1>
+    </div>
+    <div class="card  mt-5 mx-auto w-75 p-5">
+        <img height="120px" width="280px" alt="logo" class="ml-0 mb-3  " src="../../assets/img/El-Alsson-logo.png" />
+        <mat-divider></mat-divider>
+        <div class="my-4">
+            <mat-horizontal-stepper linear labelPosition="bottom">
+                <mat-step  [stepControl]="studentForm"class="p-5">
+                    <form [formGroup]="studentForm" (ngSubmit)="onSubmitStudent()" class="form-design f-student">
+                        <ng-template matStepLabel>
+
+                            Student Information
+                        </ng-template>
+
+
+                        <h2 class="mt-5 ml-5">Please Enter Your Student Information :</h2>
+                        <div class="row">
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="First Name">First Name (EN)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="First Name" formControlName="firstName"
+                                    pattern="[a-zA-Z]*"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.firstName.errors||studentForm.controls.firstName.errors&&studentForm.controls.firstName.touched}">
+
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.firstName.errors?.['required']||studentForm.controls.firstName.touched&&studentForm.controls.firstName.errors?.['required']">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.firstName.errors?.['pattern']||studentForm.controls.firstName.touched&&studentForm.controls.firstName.errors?.['pattern']">
+                                    Please enter only english alphabets
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Second">Middle Name (EN)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.secondName.errors||studentForm.controls.secondName.errors&&studentForm.controls.secondName.touched}"
+                                    formControlName="secondName">
+                                <div class="text-danger mb-3"
+                                    *ngIf="submittedStudent&&studentForm.controls.secondName.errors?.['required']||studentForm.controls.secondName.errors?.['required']&&studentForm.controls.secondName.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedStudent&&studentForm.controls.secondName.errors?.['pattern']||studentForm.controls.secondName.touched&&studentForm.controls.secondName.errors?.['pattern']">
+                                    Please enter only english alphabets
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Last Name">Last Name (EN)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Last Name"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.lastName.errors||studentForm.controls.lastName.errors&&studentForm.controls.lastName.touched}"
+                                    formControlName="lastName">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.lastName.errors?.['required']||studentForm.controls.lastName.errors?.['required']&&studentForm.controls.lastName.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedStudent&&studentForm.controls.lastName.errors?.['pattern']||studentForm.controls.lastName.touched&&studentForm.controls.lastName.errors?.['pattern']">
+                                    Please enter only english alphabets
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="First Name">First Name (AR)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="First Name"
+                                    formControlName="firstNameArabic"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.firstNameArabic.errors||studentForm.controls.firstNameArabic.errors&&studentForm.controls.firstNameArabic.touched}">
+                                <div class="mb-3 text-danger "
+                                    *ngIf="submittedStudent&&studentForm.controls.firstNameArabic.errors?.['required']||studentForm.controls.firstNameArabic.errors?.['required']&&studentForm.controls.firstNameArabic.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedStudent&&studentForm.controls.firstNameArabic.errors?.['pattern']||studentForm.controls.firstNameArabic.touched&&studentForm.controls.firstNameArabic.errors?.['pattern']">
+                                    Please enter only arabic alphabets
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Second">Middle Name (AR)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.secondNameArabic.errors||studentForm.controls.secondNameArabic.errors&&studentForm.controls.secondNameArabic.touched}"
+                                    formControlName="secondNameArabic">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.secondNameArabic.errors?.['required']||studentForm.controls.secondNameArabic.errors?.['required']&&studentForm.controls.secondNameArabic.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedStudent&&studentForm.controls.secondNameArabic.errors?.['pattern']||studentForm.controls.secondNameArabic.touched&&studentForm.controls.secondNameArabic.errors?.['pattern']">
+                                    Please enter only arabic alphabets
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Last Name">Last Name (AR)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Last Name" formControlName="lastNameArabic"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.lastNameArabic.errors||studentForm.controls.lastNameArabic.errors?.['required']&&studentForm.controls.lastNameArabic.touched}">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.lastNameArabic.errors?.['required']||studentForm.controls.lastNameArabic.errors&&studentForm.controls.lastNameArabic.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedStudent&&studentForm.controls.lastNameArabic.errors?.['pattern']||studentForm.controls.lastNameArabic.touched&&studentForm.controls.lastNameArabic.errors?.['pattern']">
+                                    Please enter only arabic alphabets
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="First Name">Birth Date <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control datepicker" formControlName="birthDate"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.birthDate.errors||studentForm.controls.birthDate.errors?.['required']&&studentForm.controls.birthDate.touched}"
+                                    id="First Name">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.birthDate.errors?.['required']||studentForm.controls.birthDate.errors?.['required']&&studentForm.controls.birthDate.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedStudent&&studentForm.controls.birthDate.errors?.['pattern']||studentForm.controls.birthDate.touched&&studentForm.controls.birthDate.errors?.['pattern']">
+                                    Please date as YYY-MM-DD
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Second">Place Of Birth <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.placeOfBirth.errors||studentForm.controls.placeOfBirth.errors?.['required']&&studentForm.controls.placeOfBirth.touched}"
+                                    formControlName="placeOfBirth">
+
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.placeOfBirth.errors?.['required']||studentForm.controls.placeOfBirth.errors?.['required']&&studentForm.controls.placeOfBirth.touched">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Last Name">Nationality <span class="text-danger">*</span></label>
+                                <select aria-label=".form-select-lg example"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.nationality.errors||studentForm.controls.nationality.errors?.['required']&&studentForm.controls.nationality.touched}"
+                                    class=" form-select form-select-md" formControlName="nationality">
+
+                                    <option *ngFor="let nationality of Nationalities" [value]="nationality.name">
+                                        {{nationality.name}}</option>
+                                </select>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.nationality.errors?.['required']||studentForm.controls.nationality.errors?.['required']&&studentForm.controls.nationality.touched">
+                                    This field is required
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="ID">Student ID <span class="text-danger">*</span></label>
+
+                                <input type="tel" maxlength="14" class="form-control" id="ID"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.studentID.errors||studentForm.controls.studentID.errors?.['required']&&studentForm.controls.studentID.touched}"
+                                    formControlName="studentID">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.studentID.errors?.['required']||studentForm.controls.studentID.errors?.['required']&&studentForm.controls.studentID.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedStudent&&studentForm.controls.studentID.errors?.['pattern']||studentForm.controls.studentID.touched&&studentForm.controls.studentID.errors?.['pattern']">
+                                    Invalid Student ID
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Gender">Gender<span class="text-danger">*</span></label>
+                                <select
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.gender.errors||studentForm.controls.gender.errors?.['required']&&studentForm.controls.gender.touched}"
+                                    class=" form-select form-select-sm" formControlName="gender">
+                                    <option disabled selected>Select your Gender</option>
+                                    <option *ngFor="let gender of Genders" [value]="gender.value">{{gender.value}}
+                                    </option>
+                                </select>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.gender.errors?.['required']||studentForm.controls.gender.errors?.['required']&&studentForm.controls.gender.touched">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Religion">Religion<span class="text-danger">*</span></label>
+                                <select name="Religion" aria-label=".form-select-lg example"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.religion.errors||studentForm.controls.religion.errors?.['required']&&studentForm.controls.religion.touched}"
+                                    class=" form-select form-select-sm" formControlName="religion">
+                                    <!-- <option disabled selected>Select your Religion</option> -->
+                                    <option *ngFor="let religion of Religions" [value]="religion.value">
+                                        {{religion.value}}</option>
+                                </select>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.religion.errors?.['required']||studentForm.controls.religion.errors?.['required']&&studentForm.controls.religion.touched">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 " appearance="fill">
+                                <label for="Second">Address<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.address.errors||studentForm.controls.address.errors?.['required']&&studentForm.controls.address.touched}"
+                                    formControlName="address">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.address.errors?.['required']||studentForm.controls.address.errors?.['required']&&studentForm.controls.address.touched">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group  form-outline col-md-4 " appearance="fill">
+                                <label for="First Name">Student Email<span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="First Name"
+                                    placeholder="example@example.com" formControlName="email"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.email.errors||studentForm.controls.email.errors?.['required']&&studentForm.controls.email.touched}">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.email.errors?.['required']||studentForm.controls.email.errors?.['required']&&studentForm.controls.email.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedStudent&&studentForm.controls.email.errors?.['email']||studentForm.controls.email.touched&&studentForm.controls.email.errors?.['email']">
+                                    Invalid Email
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Second">Student Mobile<span class="text-danger">*</span></label>
+                                <input type="tel" placeholder="+(20)0100-987-6543" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.mobile.errors||studentForm.controls.mobile.errors?.['required']&&studentForm.controls.mobile.touched}"
+                                    formControlName="mobile">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.mobile.errors?.['required']||studentForm.controls.mobile.errors?.['required']&&studentForm.controls.mobile.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedStudent&&studentForm.controls.mobile.errors?.['pattern']||studentForm.controls.mobile.touched&&studentForm.controls.mobile.errors?.['pattern']">
+                                    Phone Number Must be 11 numbers
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Last Name">Language/s spoken at home<span
+                                        class="text-danger">*</span></label>
+                                <select aria-label=".form-select-lg example"
+                                    [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.lastNameArabic.errors||studentForm.controls.lastNameArabic.errors?.['required']&&studentForm.controls.lastNameArabic.touched}"
+                                    class=" form-select  form-select-md" formControlName="language">
+                                    <option disabled selected>Select your language</option>
+                                    <option *ngFor="let language of languages" [value]="language.name">{{language.name}}
+                                    </option>
+                                </select>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.language.errors?.['required']||studentForm.controls.language.errors?.['required']&&studentForm.controls.language.touched">
+                                    This field is required
+                                </div>
+
+                            </div>
+
+                            <h2 class="mt-5 ml-5">Please Upload The Following Documents:</h2>
+
+                            <div class="row ">
+                                <div class="mt-5  col-md-6">
+                                    <p>Student Photo<span class="text-danger">*</span></p>
+                                    <div class="col-md-2 upload ">
+
+                                        <!-- <div class="file_name">{{ fileName }}</div> -->
+                                        <label for="file-input" class="uploader ">
+                                            <input id="file-input" type="file" formControlName="studentPhoto" />
+                                            <div class="uploader">
+                                                <i class="material-icons icon "
+                                                    accept="image/*">cloud_upload</i><span>Upload</span>
+                                            </div>
+
+                                        </label>
+                                    </div>
+                                    <div class="text-danger mt-3 "
+                                        *ngIf="submittedStudent&&studentForm.controls.studentPhoto.errors?.['required']">
+                                        This field is required
+                                    </div>
+                                </div>
+                                <div class="mt-5  col-md-6">
+                                    <p>Report Card</p>
+
+                                    <div class="col-md-2 upload ">
+                                        <!-- <div class="file_name">{{ fileName }}</div> -->
+                                        <label for="file-report" class="uploader ">
+                                            <input id="file-report" type="file" formControlName="reportCard" />
+                                            <div class="uploader">
+                                                <i class="material-icons icon "
+                                                    accept="image/*">cloud_upload</i><span>Upload</span>
+                                            </div>
+                                        </label>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-5  col-md-6">
+                                <p>Birth Certificate For The Child<span class="text-danger">*</span></p>
+
+                                <div class="col-md-2 upload ">
+                                    <!-- <div class="file_name">{{ fileName }}</div> -->
+                                    <label for="file-certificate" class="uploader ">
+                                        <input id="file-certificate" type="file" formControlName="birthCertificate" />
+                                        <div class="uploader">
+                                            <i class="material-icons icon ">cloud_upload</i><span>Upload</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="text-danger  mt-3 "
+                                    *ngIf="submittedStudent&&studentForm.controls.birthCertificate.errors?.['required']">
+                                    This field is required
+                                </div>
+                            </div>
+                            <p class="my-5 h6">Arefrence letter is required,if not available,then a name ,email
+                                address and phone number of aperson in the current school should be provided for
+                                refrence.
+                            </p>
+                            <div class="row">
+
+                                <div class="form-group col-md-4 " appearance="fill">
+                                    <label for="First Name">Name</label>
+                                    <input type="text" class="form-control" id="First Name"
+                                        formControlName="anotherName"
+                                        [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.anotherName.errors||studentForm.controls.anotherName.errors?.['required']&&studentForm.controls.anotherName.touched}">
+
+                                    <div class="text-danger mb-3  "
+                                        *ngIf="submittedStudent&&studentForm.controls.anotherName.errors?.['pattern']||studentForm.controls.anotherName.touched&&studentForm.controls.anotherName.errors?.['pattern']">
+                                        Please enter only english alphabets
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4 " appearance="fill">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" class="form-control" formControlName="anotherEmail"
+                                        [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.anotherEmail.errors||studentForm.controls.anotherEmail.errors&&studentForm.controls.anotherEmail.touched}"
+                                        placeholder="example@example.com">
+
+                                    <div class="text-danger mb-3"
+                                        *ngIf="submittedStudent&&studentForm.controls.anotherEmail.errors?.['email']||studentForm.controls.anotherEmail.touched&&studentForm.controls.anotherEmail.errors?.['email']">
+                                        Email Is Invalid
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-4 " appearance="fill">
+                                    <label for="Second">Phone</label>
+                                    <input type="tel" class="form-control" id="Second" placeholder="+(20)0100-987-6543"
+                                        [ngClass]="{'is-invalid':submittedStudent &&studentForm.controls.anotherMobile.errors||studentForm.controls.anotherMobile.errors?.['required']&&studentForm.controls.anotherMobile.touched}"
+                                        formControlName="anotherMobile">
+
+                                    <div class="text-danger mb-3  "
+                                        *ngIf="submittedStudent&&studentForm.controls.anotherMobile.errors?.['pattern']||studentForm.controls.anotherMobile.touched&&studentForm.controls.anotherMobile.errors?.['pattern']">
+                                        Phone Number Must be 11 numbers
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-5  col-md-6">
+                                <p> Reference Letter file</p>
+
+                                <div class="col-md-2 upload ">
+                                    <!-- <div class="file_name">{{ fileName }}</div> -->
+                                    <label for="file-refrence" class="uploader ">
+                                        <input id="file-refrence" type="file" formControlName="referenceLetter" />
+                                        <div class="uploader">
+                                            <i class="material-icons icon ">cloud_upload</i><span>Upload</span>
+                                        </div>
+                                    </label>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <button class="mt-5 nextBtn btn btn-primary" matStepperNext>Next</button>
+
+                    </form>
+                </mat-step>
+                <mat-divider></mat-divider>
+
+                <mat-step  [stepControl]="schoolForm" class="p-5" >
+                    <form [formGroup]="schoolForm" (ngSubmit)="onSubmitSchool()" class="form-design f-school">
+
+                        <ng-template matStepLabel>School Information</ng-template>
+                        <div class="row mb-5 ">
+                            <h2 class="mt-5 ml-5 col-md-9">Please Enter The School Information Below:</h2>
+                            <div class="add-btn  mt-5 ">
+                                <button type="button" class="btn btn-dark" (click)="addShool()">
+                                    <mat-icon>add</mat-icon> add school
+                                </button>
+                            </div>
+                        </div>
+                        <table class="table  table-bordered bg-grey ">
+                            <thead>
+                                <tr>
+                                    <td>Previous school/Nursery<span class="text-danger">*</span></td>
+                                    <td>Grade/Year <span class="text-danger">*</span></td>
+                                    <td>Years Attended <span class="text-danger">*</span></td>
+                                    <td>Reason for leaving <span class="text-danger">*</span></td>
+                                </tr>
+                            </thead>
+                            <tbody id="add-tr" >
+                                <tr class="p-5" id="table-row">
+                                    <td class=" form-group">
+
+                                        <input type="text" class="form-control  p-3" formControlName="nursery"
+                                            [ngClass]="{'is-invalid':submittedSchool &&schoolForm.controls.nursery.errors||schoolForm.controls.nursery.errors&&schoolForm.controls.nursery.touched
+                                    ||schoolForm.controls.nursery.errors&&submittedForm}">
+                                        <div class="text-danger mb-3 "
+                                            *ngIf="submittedSchool&&schoolForm.controls.nursery.errors?.['required']||schoolForm.controls.nursery.touched&&schoolForm.controls.nursery.errors?.['required'] ||schoolForm.controls.nursery.errors?.['required']&&submittedForm">
+                                            This field is required
+                                        </div>
+
+                                    </td>
+                                    <td class=" form-group ">
+                                        <input type="text" class="form-control p-3" formControlName="grade" [ngClass]="{'is-invalid':submittedSchool &&schoolForm.controls.grade.errors||schoolForm.controls.grade.errors&&schoolForm.controls.grade.touched
+                              ||schoolForm.controls.grade.errors&&submittedForm}">
+                                        <div class="text-danger mb-3 "
+                                            *ngIf="submittedSchool&&schoolForm.controls.grade.errors?.['required']||schoolForm.controls.grade.touched&&schoolForm.controls.grade.errors?.['required'] ||schoolForm.controls.grade.errors?.['required']&&submittedForm">
+                                            This field is required
+                                        </div>
+                                    </td>
+                                    <td class=" form-group ">
+                                        <input type="text" class="form-control p-3" formControlName="yearsAttended"
+                                            [ngClass]="{'is-invalid':submittedSchool &&schoolForm.controls.yearsAttended.errors||schoolForm.controls.yearsAttended.errors&&schoolForm.controls.yearsAttended.touched
+                              ||schoolForm.controls.yearsAttended.errors&&submittedForm}">
+                                        <div class="text-danger mb-3 "
+                                            *ngIf="submittedSchool&&schoolForm.controls.yearsAttended.errors?.['required']||schoolForm.controls.yearsAttended.touched&&schoolForm.controls.yearsAttended.errors?.['required'] ||schoolForm.controls.yearsAttended.errors?.['required']&&submittedForm">
+                                            This field is required
+                                        </div>
+                                    </td>
+                                    <td class="form-group ">
+                                        <input type="text" class="form-control p-3 " formControlName="reasonForLeaving"
+                                            [ngClass]="{'is-invalid':submittedSchool &&schoolForm.controls.reasonForLeaving.errors||schoolForm.controls.reasonForLeaving.errors&&schoolForm.controls.reasonForLeaving.touched
+                                        ||schoolForm.controls.reasonForLeaving.errors&&submittedForm}">
+                                        <div class="text-danger mb-3 "
+                                            *ngIf="submittedSchool&&schoolForm.controls.reasonForLeaving.errors?.['required']||schoolForm.controls.reasonForLeaving.touched&&schoolForm.controls.reasonForLeaving.errors?.['required'] ||schoolForm.controls.reasonForLeaving.errors?.['required']&&submittedForm">
+                                            This field is required
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="p-5" id="table-row" formArrayName="schools"
+                                *ngFor="let lessonForm of schools.controls; let i = index">
+
+                                <td class=" form-group">
+
+                                    <input type="text" class="form-control  p-3" formControlName="nurserySchool">
+                                </td>
+                                <td class=" form-group ">
+                                    <input type="text" class="form-control p-3" formControlName="gradeSchool">
+                                   
+                                </td>
+                                <td class=" form-group ">
+                                    <input type="text" class="form-control p-3" formControlName="yearsAttendedSchool">
+                                </td>
+                                <td class="form-group ">
+                                    <input type="text" class="form-control p-3 " formControlName="reasonForLeavingSchool">
+                                </td>
+                                <i class="fa-solid fa-trash text-danger  delete mt-4" (click)="deleteSchool(i)"></i>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                      
+                        <h2 class="mt-3  ">Applying For <span class="text-danger">*</span></h2>
+                        <div class="row">
+                            <div class="form-group  col-md-3 ">
+                                <label for="school">School</label>
+                                <select class=" form-select " formControlName="school" id="school"
+                                    [ngClass]="{'is-invalid':submittedSchool &&schoolForm.controls.school.errors||schoolForm.controls.school.errors&&schoolForm.controls.school.touched}">
+                                    <option *ngFor="let school of Schools">{{school.value}}</option>
+                                </select>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedSchool&&schoolForm.controls.school.errors?.['required']||schoolForm.controls.school.touched&&schoolForm.controls.school.errors?.['required']">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3 ">
+                                <label for="Your Group">Your Group/grade</label>
+                                <select class=" form-select " formControlName="yourGrade" id="Your Group"
+                                    [ngClass]="{'is-invalid':submittedSchool &&schoolForm.controls.yourGrade.errors||schoolForm.controls.yourGrade.errors&&schoolForm.controls.yourGrade.touched}">
+                                    <option *ngFor="let group of yearGroups">{{group.value}}</option>
+                                </select>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submitted&&schoolForm.controls.yourGrade.errors?.['required']||schoolForm.controls.yourGrade.touched&&schoolForm.controls.yourGrade.errors?.['required']">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3 ">
+                                <label for="Academic Year">Academic Year</label>
+                                <input type="text" class="form-control" formControlName="academicYear"
+                                    id="Academic Year"
+                                    [ngClass]="{'is-invalid':submittedSchool &&schoolForm.controls.academicYear.errors||schoolForm.controls.academicYear.errors&&schoolForm.controls.academicYear.touched}">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submitted&&schoolForm.controls.academicYear.errors?.['required']||schoolForm.controls.academicYear.touched&&schoolForm.controls.academicYear.errors?.['required'] ">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3 ">
+                                <label for="Month">Month To start school</label>
+                                <select class=" form-select " formControlName="month" id="Month"
+                                    [ngClass]="{'is-invalid':submittedSchool &&schoolForm.controls.month.errors||schoolForm.controls.month.errors&&schoolForm.controls.month.touched}">
+                                    <option *ngFor="let month of months">{{month.value}}</option>
+                                </select>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submitted&&schoolForm.controls.month.errors?.['required']||schoolForm.controls.month.touched&&schoolForm.controls.month.errors?.['required']">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12  mt-4">
+                                <label for="Reason">Reason For Applying</label>
+                                <input type="text" formControlName="reasonForApplying" class="form-control" id="Reason">
+                            </div>
+
+
+                            <h3 class="mt-3 fw">Has your child recieved any learning support services in a previous
+                                school or center?<span class="text-danger">*</span></h3>
+                            <div class="row support-radio col-md-6">
+                                <div class=" form-check col-md-2 ">
+                                    <input [value]="true" (click)="enableDetails()" type="radio"
+                                        formControlName="learningSupport">
+                                    <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class=" form-check col-md-3 ">
+                                    <input [value]="false" type="radio" (click)="disableDetails()"
+                                        formControlName="learningSupport">
+                                    <label class="form-check-label fw-bold " for="flexRadioDefault1">
+                                        No
+                                    </label>
+                                </div>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedSchool&&schoolForm.controls.learningSupport.errors?.['required']||schoolForm.controls.learningSupport.touched&&schoolForm.controls.learningSupport.errors?.['required']">
+                                    This field is required
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12 fw  my-4">
+                                <label for="details" class=" mb-2">If yes, please provide details / reports <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" formControlName="detailsSupport" class="form-control" id="details">
+                                <div *ngIf="details">
+                                    <div class="text-danger mt-3 "
+                                        *ngIf="submitted&&schoolForm.controls.detailsSupport.errors?.['required']||schoolForm.controls.detailsSupport.touched&&schoolForm.controls.detailsSupport.errors?.['required']">
+                                        This field is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="mt-2 fw">Are you foreigner?</h3>
+                            <div class="row col-md-6 ml-5">
+                                <div class="form-check col-md-2 ml-2">
+                                    <input class="form-check-input" [value]="true" type="radio" id="flexRadioDefault1"
+                                        formControlName="foreigner">
+                                    <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-3">
+                                    <input class="form-check-input" [value]="false" type="radio" id="flexRadioDefault1"
+                                        formControlName="foreigner">
+                                    <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <h3 class="mt-3 fw">Are you egyptian returning from aboard? </h3>
+
+                            <div class="row col-md-6 ml-3">
+                                <div class="form-check col-md-2 ml-2">
+                                    <input class="form-check-input" [value]="true" type="radio" id="flexRadioDefault1"
+                                        formControlName="egyptian">
+                                    <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-3">
+                                    <input class="form-check-input" [value]="false" type="radio" id="flexRadioDefault1"
+                                        formControlName="egyptian">
+                                    <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <h3 class="mt-3 fw">Are you transferring from another school in cairo? </h3>
+                            <div class="row col-md-6 ml-3 mb-5">
+                                <div class="form-check col-md-2 ml-2">
+                                    <input class="form-check-input" [value]="true" type="radio" id="flexRadioDefault1"
+                                        formControlName="anotherSchool">
+                                    <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-3">
+                                    <input class="form-check-input" [value]="false" type="radio" id="flexRadioDefault1"
+                                        formControlName="anotherSchool">
+                                    <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <div class="  f-l">
+                                <button mat-raised-button matStepperPrevious class="prevBtn">Previous</button>
+                            </div>
+                            <div class=" f-r">
+                                <button mat-button matStepperNext class=" btn btn-primary ">Next</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </mat-step>
+
+                <mat-divider></mat-divider>
+
+                <mat-step [stepControl]="parentForm">
+                    <form [formGroup]="parentForm" (ngSubmit)="onSubmitParent()" class="my-5 form-design f-school">
+                        <ng-template matStepLabel>Parents Information</ng-template>
+                        <h2 class="mt-2 ml-5"> Enter the Parents Information below</h2>
+
+                        <h2 class="mt-5 ml-5">Father Information</h2>
+
+                        <div class="row">
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="First Name">First Name (EN)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="First Name" formControlName="firstName"
+                                    pattern="[a-zA-Z]*"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.firstName.errors||parentForm.controls.firstName.errors&&parentForm.controls.firstName.touched}">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.firstName.errors?.['required']||parentForm.controls.firstName.touched&&parentForm.controls.firstName.errors?.['required']">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.firstName.errors?.['pattern']||parentForm.controls.firstName.touched&&parentForm.controls.firstName.errors?.['pattern']">
+                                    Please enter only english alphabets
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Second">Middle Name (EN)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.secondName.errors||parentForm.controls.secondName.errors&&parentForm.controls.secondName.touched}"
+                                    formControlName="secondName">
+                                <div class="text-danger mb-3"
+                                    *ngIf="submittedParent&&parentForm.controls.secondName.errors?.['required']||parentForm.controls.secondName.errors?.['required']&&parentForm.controls.secondName.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.secondName.errors?.['pattern']||parentForm.controls.secondName.touched&&parentForm.controls.secondName.errors?.['pattern']">
+                                    Please enter only english alphabets
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Last Name">Last Name (EN)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Last Name"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.lastName.errors||parentForm.controls.lastName.errors&&parentForm.controls.lastName.touched}"
+                                    formControlName="lastName">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.lastName.errors?.['required']||parentForm.controls.lastName.errors?.['required']&&parentForm.controls.lastName.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.lastName.errors?.['pattern']||parentForm.controls.lastName.touched&&parentForm.controls.lastName.errors?.['pattern']">
+                                    Please enter only english alphabets
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="First Name">First Name (AR)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="First Name"
+                                    formControlName="firstNameArabic"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.firstNameArabic.errors||parentForm.controls.firstNameArabic.errors&&parentForm.controls.firstNameArabic.touched}">
+                                <div class="mb-3 text-danger "
+                                    *ngIf="submittedParent&&parentForm.controls.firstNameArabic.errors?.['required']||parentForm.controls.firstNameArabic.errors?.['required']&&parentForm.controls.firstNameArabic.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.firstNameArabic.errors?.['pattern']||parentForm.controls.firstNameArabic.touched&&parentForm.controls.firstNameArabic.errors?.['pattern']">
+                                    Please enter only arabic alphabets
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Second">Middle Name (AR)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.secondNameArabic.errors||parentForm.controls.secondNameArabic.errors&&parentForm.controls.secondNameArabic.touched}"
+                                    formControlName="secondNameArabic">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.secondNameArabic.errors?.['required']||parentForm.controls.secondNameArabic.errors?.['required']&&parentForm.controls.secondNameArabic.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.secondNameArabic.errors?.['pattern']||parentForm.controls.secondNameArabic.touched&&parentForm.controls.secondNameArabic.errors?.['pattern']">
+                                    Please enter only arabic alphabets
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Last Name">Last Name (AR)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Last Name" formControlName="lastNameArabic"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.lastNameArabic.errors||parentForm.controls.lastNameArabic.errors?.['required']&&parentForm.controls.lastNameArabic.touched}">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.lastNameArabic.errors?.['required']||parentForm.controls.lastNameArabic.errors&&parentForm.controls.lastNameArabic.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.lastNameArabic.errors?.['pattern']||parentForm.controls.lastNameArabic.touched&&parentForm.controls.lastNameArabic.errors?.['pattern']">
+                                    Please enter only arabic alphabets
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Religion">Religion<span class="text-danger">*</span></label>
+                                <option disabled selected>Select your Religion</option>
+                                <select name="Religion" aria-label=".form-select-lg example"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.religion.errors||parentForm.controls.religion.errors?.['required']&&parentForm.controls.religion.touched}"
+                                    class=" form-select form-select-sm" formControlName="religion">
+                                    <option *ngFor="let religion of Religions">{{religion.value}}</option>
+                                </select>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.religion.errors?.['required']||parentForm.controls.religion.errors?.['required']&&parentForm.controls.religion.touched">
+                                    This field is required
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Religion">Nationality<span class="text-danger">*</span></label>
+                                <option disabled selected>Select your nationality</option>
+                                <select name="Religion" aria-label=".form-select-lg example"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.nationality.errors||parentForm.controls.nationality.errors?.['required']&&parentForm.controls.nationality.touched}"
+                                    class=" form-select form-select-sm" formControlName="nationality">
+                                    <option *ngFor="let nationality of Nationalities">{{nationality.name}}</option>
+                                </select>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.nationality.errors?.['required']||parentForm.controls.nationality.errors?.['required']&&parentForm.controls.nationality.touched">
+                                    This field is required
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-12 mt-3 " appearance="fill">
+                                <label for="Second">Address<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.address.errors||parentForm.controls.address.errors?.['required']&&parentForm.controls.address.touched}"
+                                    formControlName="address">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.address.errors?.['required']||parentForm.controls.address.errors?.['required']&&parentForm.controls.address.touched">
+                                    This field is required
+                                </div>
+
+                            </div>
+
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Second">Phone<span class="text-danger">*</span></label>
+                                <input type="tel" placeholder="+(2)02-987-6543" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.phone.errors||parentForm.controls.phone.errors?.['required']&&parentForm.controls.phone.touched}"
+                                    formControlName="phone">
+
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.phone.errors?.['required']||parentForm.controls.phone.errors?.['required']&&parentForm.controls.phone.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.phone.errors?.['pattern']||parentForm.controls.phone.touched&&parentForm.controls.phone.errors?.['pattern']">
+                                    Phone Number Must be 9 numbers
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Second"> Mobile<span class="text-danger">*</span></label>
+                                <input type="tel" placeholder="+(20)0100-987-6543" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.mobile.errors||parentForm.controls.mobile.errors?.['required']&&parentForm.controls.mobile.touched}"
+                                    formControlName="mobile">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.mobile.errors?.['required']||parentForm.controls.mobile.errors?.['required']&&parentForm.controls.mobile.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.mobile.errors?.['pattern']||parentForm.controls.mobile.touched&&parentForm.controls.mobile.errors?.['pattern']">
+                                    Phone Number Must be 11 numbers
+                                </div>
+                            </div>
+                            <div class="form-group  form-outline col-md-4 mt-3 " appearance="fill">
+                                <label for="First Name">Email<span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="First Name"
+                                    placeholder="example@example.com" formControlName="email"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.email.errors||parentForm.controls.email.errors?.['required']&&parentForm.controls.email.touched}">
+
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submitted&&parentForm.controls.email.errors?.['required']||parentForm.controls.email.errors?.['required']&&parentForm.controls.email.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submitted&&parentForm.controls.email.errors?.['email']||parentForm.controls.email.touched&&parentForm.controls.email.errors?.['email']">
+                                    Invalid Email
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Second">Education:School<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.school.errors||parentForm.controls.school.errors?.['required']&&parentForm.controls.school.touched}"
+                                    formControlName="school">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.school.errors?.['required']||parentForm.controls.school.errors?.['required']&&parentForm.controls.school.touched">
+                                    This field is required
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Second">Education:University<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.university.errors||parentForm.controls.university.errors?.['required']&&parentForm.controls.university.touched}"
+                                    formControlName="university">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.university.errors?.['required']||parentForm.controls.university.errors?.['required']&&parentForm.controls.university.touched">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Second">Occupation<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.occupation.errors||parentForm.controls.occupation.errors?.['required']&&parentForm.controls.occupation.touched}"
+                                    formControlName="occupation">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.occupation.errors?.['required']||parentForm.controls.occupation.errors?.['required']&&parentForm.controls.occupation.touched">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Second">Employer<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.employer.errors||parentForm.controls.employer.errors?.['required']&&parentForm.controls.employer.touched}"
+                                    formControlName="employer">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.employer.errors?.['required']||parentForm.controls.employer.errors?.['required']&&parentForm.controls.employer.touched">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Second">Type Of Business<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.typeOfBusiness.errors||parentForm.controls.typeOfBusiness.errors?.['required']&&parentForm.controls.typeOfBusiness.touched}"
+                                    formControlName="typeOfBusiness">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.typeOfBusiness.errors?.['required']||parentForm.controls.typeOfBusiness.errors?.['required']&&parentForm.controls.typeOfBusiness.touched">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Second">Work Address<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.workAddress.errors||parentForm.controls.workAddress.errors?.['required']&&parentForm.controls.workAddress.touched}"
+                                    formControlName="workAddress">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.workAddress.errors?.['required']||parentForm.controls.workAddress.errors?.['required']&&parentForm.controls.workAddress.touched">
+                                    This field is required
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Second">Work Mobile<span class="text-danger">*</span></label>
+                                <input type="tel" placeholder="+(20)0100-987-6543" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.workMobile.errors||parentForm.controls.workMobile.errors?.['required']&&parentForm.controls.workMobile.touched}"
+                                    formControlName="workMobile">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.workMobile.errors?.['required']||parentForm.controls.workMobile.errors?.['required']&&parentForm.controls.workMobile.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.workMobile.errors?.['pattern']||parentForm.controls.workMobile.touched&&parentForm.controls.workMobile.errors?.['pattern']">
+                                    Phone Number Must be 11 numbers
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Second">Work Telephone<span class="text-danger">*</span></label>
+                                <input type="tel" placeholder="+(2)02-987-6543" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.workPhone.errors||parentForm.controls.workPhone.errors?.['required']&&parentForm.controls.workPhone.touched}"
+                                    formControlName="workPhone">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.workPhone.errors?.['required']||parentForm.controls.workPhone.errors?.['required']&&parentForm.controls.workPhone.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.workPhone.errors?.['pattern']||parentForm.controls.workPhone.touched&&parentForm.controls.workPhone.errors?.['pattern']">
+                                    Phone Number Must be 9 numbers
+                                </div>
+                            </div>
+                            <div class="form-group  form-outline col-md-4 mt-3 " appearance="fill">
+                                <label for="First Name">Business Website<span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="First Name" placeholder="www.example.com"
+                                    formControlName="businessWebsite"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.businessWebsite.errors||parentForm.controls.businessWebsite.errors?.['required']&&parentForm.controls.businessWebsite.touched}">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.businessWebsite.errors?.['required']||parentForm.controls.businessWebsite.errors?.['required']&&parentForm.controls.businessWebsite.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.businessWebsite.errors?.['pattern']||parentForm.controls.businessWebsite.touched&&parentForm.controls.businessWebsite.errors?.['pattern']">
+                                    Invalid Website
+                                </div>
+                            </div>
+
+
+                            <div class="row col-md-4 ml-5">
+                                <h3 class="mt-3 fw">Are you an Alsson Alumni? <span class="text-danger">*</span></h3>
+                                <div class="form-check col-md-2 ml-3">
+                                    <input class="form-check-input" [value]="true" type="radio" id="flexRadioDefault1"
+                                        [(ngModel)]="selectedClassFather" formControlName="alsson">
+                                    <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-2 ml-3">
+                                    <input class="form-check-input" [value]="false" type="radio" id="flexRadioDefault1"
+                                        [(ngModel)]="selectedClassFather" formControlName="alsson">
+                                    <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                        No
+                                    </label>
+                                </div>
+
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.alsson.errors?.['required']||parentForm.controls.alsson.touched&&parentForm.controls.alsson.errors?.['required']">
+                                    This field is required
+                                </div>
+                            </div>
+
+                            <div class="form-group  mt-3 col-md-8 " *ngIf="selectedClassFather == true">
+                                <label for="Your Group">Class Of <span class="text-danger">*</span></label>
+                                <select class=" form-select " formControlName="classOf" id="Your Group"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.classOf.errors||parentForm.controls.classOf.errors&&parentForm.controls.classOf.touched}">
+                                    <option *ngFor="let group of yearGroups">{{group.value}}</option>
+                                </select>
+
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.classOf.errors?.['required']||parentForm.controls.classOf.touched&&parentForm.controls.classOf.errors?.['required']">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <h2>Please Upload Father Id <span class="text-danger">*</span> </h2>
+
+                                <div class="col-md-2 upload ">
+                                    <label for="file-Father" class="uploader ">
+                                        <input id="file-Father" type="file" formControlName="fatherId" />
+                                        <div class="uploader">
+                                            <i class="material-icons icon "
+                                                accept="image/*">cloud_upload</i><span>Upload</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="text-danger mt-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.fatherId.errors?.['required']">
+                                    This field is required
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <h2 class="mt-5 ml-5">Mother Information</h2>
+
+                        <div class="row">
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="First Name">First Name (EN)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="First Name" formControlName="firstNameMom"
+                                    pattern="[a-zA-Z]*"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.firstNameMom.errors||parentForm.controls.firstNameMom.errors&&parentForm.controls.firstNameMom.touched}">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.firstNameMom.errors?.['required']||parentForm.controls.firstNameMom.touched&&parentForm.controls.firstNameMom.errors?.['required']">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.firstNameMom.errors?.['pattern']||parentForm.controls.firstNameMom.touched&&parentForm.controls.firstNameMom.errors?.['pattern']">
+                                    Please enter only english alphabets
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Second">Middle Name (EN)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.secondNameMom.errors||parentForm.controls.secondNameMom.errors&&parentForm.controls.secondNameMom.touched}"
+                                    formControlName="secondNameMom">
+                                <div class="text-danger mb-3"
+                                    *ngIf="submittedParent&&parentForm.controls.secondNameMom.errors?.['required']||parentForm.controls.secondNameMom.errors?.['required']&&parentForm.controls.secondNameMom.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.secondNameMom.errors?.['pattern']||parentForm.controls.secondNameMom.touched&&parentForm.controls.secondNameMom.errors?.['pattern']">
+                                    Please enter only english alphabets
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 " appearance="fill">
+                                <label for="Last Name">Last Name (EN)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Last Name"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.lastNameMom.errors||parentForm.controls.lastNameMom.errors&&parentForm.controls.lastNameMom.touched}"
+                                    formControlName="lastNameMom">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.lastNameMom.errors?.['required']||parentForm.controls.lastNameMom.errors?.['required']&&parentForm.controls.lastNameMom.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.lastNameMom.errors?.['pattern']||parentForm.controls.lastNameMom.touched&&parentForm.controls.lastNameMom.errors?.['pattern']">
+                                    Please enter only english alphabets
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="First Name">First Name (AR)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="First Name"
+                                    formControlName="firstNameArabicMom"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.firstNameArabicMom.errors||parentForm.controls.firstNameArabicMom.errors&&parentForm.controls.firstNameArabicMom.touched}">
+                                <div class="mb-3 text-danger "
+                                    *ngIf="submittedParent&&parentForm.controls.firstNameArabicMom.errors?.['required']||parentForm.controls.firstNameArabicMom.errors?.['required']&&parentForm.controls.firstNameArabicMom.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.firstNameArabicMom.errors?.['pattern']||parentForm.controls.firstNameArabicMom.touched&&parentForm.controls.firstNameArabicMom.errors?.['pattern']">
+                                    Please enter only arabic alphabets
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Second">Middle Name (AR)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.secondNameArabicMom.errors||parentForm.controls.secondNameArabicMom.errors&&parentForm.controls.secondNameArabicMom.touched}"
+                                    formControlName="secondNameArabicMom">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.secondNameArabicMom.errors?.['required']||parentForm.controls.secondNameArabicMom.errors?.['required']&&parentForm.controls.secondNameArabicMom.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.secondNameArabicMom.errors?.['pattern']||parentForm.controls.secondNameArabicMom.touched&&parentForm.controls.secondNameArabicMom.errors?.['pattern']">
+                                    Please enter only arabic alphabets
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Last Name">Last Name (AR)<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Last Name"
+                                    formControlName="lastNameArabicMom"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.lastNameArabicMom.errors||parentForm.controls.lastNameArabicMom.errors?.['required']&&parentForm.controls.lastNameArabicMom.touched}">
+
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.lastNameArabicMom.errors?.['required']||parentForm.controls.lastNameArabicMom.errors&&parentForm.controls.lastNameArabicMom.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.lastNameArabicMom.errors?.['pattern']||parentForm.controls.lastNameArabicMom.touched&&parentForm.controls.lastNameArabicMom.errors?.['pattern']">
+                                    Please enter only arabic alphabets
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Religion">Religion<span class="text-danger">*</span></label>
+                                <select name="Religion" aria-label=".form-select-lg example"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.religionMom.errors||parentForm.controls.religionMom.errors?.['required']&&parentForm.controls.religionMom.touched}"
+                                    class=" form-select form-select-sm" formControlName="religionMom">
+                                    <option *ngFor="let religion of Religions">{{religion.value}}</option>
+                                </select>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.religionMom.errors?.['required']||parentForm.controls.religionMom.errors?.['required']&&parentForm.controls.religionMom.touched">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Religion">Nationality<span class="text-danger">*</span></label>
+                                <select name="Religion" aria-label=".form-select-lg example"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.nationalityMom.errors||parentForm.controls.nationalityMom.errors?.['required']&&parentForm.controls.nationalityMom.touched}"
+                                    class=" form-select form-select-sm" formControlName="nationalityMom">
+                                    <option *ngFor="let nationality of Nationalities" [value]="nationality.name">
+                                        {{nationality.name}}</option>
+                                </select>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.nationalityMom.errors?.['required']||parentForm.controls.nationalityMom.errors?.['required']&&parentForm.controls.nationalityMom.touched">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 mt-3 " appearance="fill">
+                                <label for="Second">Address<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.addressMom.errors||parentForm.controls.addressMom.errors?.['required']&&parentForm.controls.addressMom.touched}"
+                                    formControlName="addressMom">
+                                <div
+                                    *ngIf="submittedParent&&parentForm.controls.addressMom.errors||parentForm.controls.addressMom.errors&&parentForm.controls.addressMom.touched">
+                                    <div class="text-danger mb-3 "
+                                        *ngIf="submittedParent&&parentForm.controls.addressMom.errors?.['required']||parentForm.controls.addressMom.errors?.['required']&&parentForm.controls.addressMom.touched">
+                                        This field is required
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Second">Phone<span class="text-danger">*</span></label>
+                                <input type="tel" placeholder="+(2)02-987-6543" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.phoneMom.errors||parentForm.controls.phoneMom.errors?.['required']&&parentForm.controls.phoneMom.touched}"
+                                    formControlName="phoneMom">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.phoneMom.errors?.['required']||parentForm.controls.phoneMom.errors?.['required']&&parentForm.controls.phoneMom.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submitted&&parentForm.controls.phoneMom.errors?.['pattern']||parentForm.controls.phoneMom.touched&&parentForm.controls.phoneMom.errors?.['pattern']">
+                                    Phone Number Must be 9 numbers
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Second"> Mobile<span class="text-danger">*</span></label>
+                                <input type="tel" placeholder="+(20)0100-987-6543" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.mobileMom.errors||parentForm.controls.mobileMom.errors?.['required']&&parentForm.controls.mobileMom.touched}"
+                                    formControlName="mobileMom">
+
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.mobileMom.errors?.['required']||parentForm.controls.mobileMom.errors?.['required']&&parentForm.controls.mobileMom.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.mobileMom.errors?.['pattern']||parentForm.controls.mobileMom.touched&&parentForm.controls.mobileMom.errors?.['pattern']">
+                                    Phone Number Must be 11 numbers
+                                </div>
+                            </div>
+                            <div class="form-group  form-outline col-md-4 mt-3 " appearance="fill">
+                                <label for="First Name">Email<span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="First Name"
+                                    placeholder="example@example.com" formControlName="emailMom"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.emailMom.errors||parentForm.controls.emailMom.errors?.['required']&&parentForm.controls.emailMom.touched}">
+
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.emailMom.errors?.['required']||parentForm.controls.emailMom.errors?.['required']&&parentForm.controls.emailMom.touched">
+                                    This field is required
+                                </div>
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.emailMom.errors?.['email']||parentForm.controls.emailMom.touched&&parentForm.controls.emailMom.errors?.['email']">
+                                    Invalid Email
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Second">Education:School<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.schoolMom.errors||parentForm.controls.schoolMom.errors?.['required']&&parentForm.controls.schoolMom.touched}"
+                                    formControlName="schoolMom">
+
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.schoolMom.errors?.['required']||parentForm.controls.schoolMom.errors?.['required']&&parentForm.controls.schoolMom.touched">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Second">Education:University<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.universityMom.errors||parentForm.controls.universityMom.errors?.['required']&&parentForm.controls.universityMom.touched}"
+                                    formControlName="universityMom">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.universityMom.errors?.['required']||parentForm.controls.universityMom.errors?.['required']&&parentForm.controls.universityMom.touched">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Second">Occupation</label>
+                                <input type="text" class="form-control" id="Second" formControlName="occupationMom">
+
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Second">Employer</label>
+                                <input type="text" class="form-control" id="Second" formControlName="employerMom">
+
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Second">Type Of Business</label>
+                                <input type="text" class="form-control" id="Second"
+                                    formControlName="typeOfBussinessMom">
+
+                            </div>
+                            <div class="form-group col-md-4 mt-3 " appearance="fill">
+                                <label for="Second">Work Address</label>
+                                <input type="text" class="form-control" id="Second" formControlName="workAddressMom">
+
+                            </div>
+
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Second">Work Mobile</label>
+                                <input type="tel" placeholder="+(20)0100-987-6543" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.workMobileMom.errors||parentForm.controls.workMobileMom.errors?.['required']&&parentForm.controls.workMobileMom.touched}"
+                                    formControlName="workMobileMom">
+
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.workMobileMom.errors?.['pattern']||parentForm.controls.workMobileMom.touched&&parentForm.controls.workMobileMom.errors?.['pattern']">
+                                    Phone Number Must be 11 numbers
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 mt-3" appearance="fill">
+                                <label for="Second">Work Telephone</label>
+                                <input type="tel" placeholder="+(2)02-987-6543" class="form-control" id="Second"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.workPhoneMom.errors||parentForm.controls.workPhoneMom.errors?.['required']&&parentForm.controls.workPhoneMom.touched}"
+                                    formControlName="workPhoneMom">
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.workPhoneMom.errors?.['pattern']||parentForm.controls.workPhoneMom.touched&&parentForm.controls.workPhoneMom.errors?.['pattern']">
+                                    Phone Number Must be 9 numbers
+                                </div>
+                            </div>
+                            <div class="form-group  form-outline col-md-4 mt-3 " appearance="fill">
+                                <label for="First Name">Business Website</label>
+                                <input type="email" class="form-control" id="First Name" placeholder="www.example.com"
+                                    formControlName="businessWebsiteMom"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.businessWebsiteMom.errors||parentForm.controls.businessWebsiteMom.errors?.['required']&&parentForm.controls.businessWebsiteMom.touched}">
+                                <div class="text-danger mb-3  "
+                                    *ngIf="submittedParent&&parentForm.controls.businessWebsiteMom.errors?.['pattern']||parentForm.controls.businessWebsiteMom.touched&&parentForm.controls.businessWebsiteMom.errors?.['pattern']">
+                                    Invalid Website
+                                </div>
+                            </div>
+
+
+                            <div class="row col-md-4 ml-5">
+                                <h3 class="mt-3 fw">Are you an Alsson Alumni? <span class="text-danger">*</span></h3>
+                                <div class="form-check col-md-2 ml-2">
+                                    <input class="form-check-input" [value]="true" type="radio" id="flexRadioDefault1"
+                                        [(ngModel)]="selectedClassMother" formControlName="alssonMom">
+                                    <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-2">
+                                    <input class="form-check-input" [value]="false" type="radio" id="flexRadioDefault1"
+                                        [(ngModel)]="selectedClassMother" formControlName="alssonMom">
+                                    <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                        No
+                                    </label>
+                                </div>
+
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.alssonMom.errors?.['required']||parentForm.controls.alssonMom.touched&&parentForm.controls.alssonMom.errors?.['required']">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="form-group  mt-3 col-md-8 " *ngIf="selectedClassMother == true">
+                                <label for="Your Group">Class Of <span class="text-danger">*</span></label>
+                                <select class=" form-select " formControlName="classOfMom" id="Your Group"
+                                    [ngClass]="{'is-invalid':submittedParent &&parentForm.controls.classOfMom.errors||parentForm.controls.classOfMom.errors&&parentForm.controls.classOfMom.touched}">
+                                    <option *ngFor="let group of yearGroups">{{group.value}}</option>
+                                </select>
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.classOfMom.errors?.['required']||parentForm.controls.classOfMom.touched&&parentForm.controls.classOfMom.errors?.['required']">
+                                    This field is required
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <h2>Please Upload Mother Id <span class="text-danger">*</span> </h2>
+
+                                <div class="col-md-2 upload ">
+                                    <label for="file-Mother" class="uploader ">
+                                        <input id="file-Mother" type="file" formControlName="MotherId" />
+                                        <div class="uploader">
+                                            <i class="material-icons icon "
+                                                accept="image/*">cloud_upload</i><span>Upload</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="text-danger mt-3 "
+                                    *ngIf="submittedParent&&parentForm.controls.MotherId.errors?.['required']">
+                                    This field is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <div class="  f-l">
+                                <button mat-raised-button matStepperPrevious class="prevBtn">Previous</button>
+                            </div>
+                            <div class=" f-r">
+                                <button mat-button matStepperNext class=" btn btn-primary ">Next</button>
+                            </div>
+                        </div>
+                    </form>
+                </mat-step>
+
+                <mat-divider></mat-divider>
+
+                <mat-step [stepControl]="siblingsForm">
+                    <form [formGroup]="siblingsForm" (ngSubmit)="onSubmitSibling()" class="my-5 form-design f-school">
+                        <ng-template matStepLabel>Brothers &Sisters data </ng-template>
+                        <div class="row mb-3">
+                            <h2 class=" ml-5 col-md-9">Please Enter Brothers&Sisters Informations Below</h2>
+                            <div class="add-btnSinling col-md-3 p-0">
+                                <button type="button" class="btn btn-dark" (click)="addSibling()">
+                                    <mat-icon class="mr-2">add</mat-icon>Add Siblings
+                                </button>
+                            </div>
+                        </div>
+                        <table class="table mb-5 table-bordered bg-grey ">
+                            <thead>
+                                <tr>
+                                    <td>Name<span class="text-danger">*</span></td>
+                                    <td>Current School<span class="text-danger">*</span></td>
+                                    <td>Age<span class="text-danger">*</span></td>
+                                    <td>Grade <span class="text-danger">*</span></td>
+                                    <td class=" px-5">Siblings in Alsson <span class="text-danger">*</span></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="p-5">
+
+                                    <td class=" form-group">
+
+                                        <input type="text" class="form-control  p-3" formControlName="Name" [ngClass]="{'is-invalid':submittedSibling &&siblingsForm.controls.Name.errors||siblingsForm.controls.Name.errors&&siblingsForm.controls.Name.touched
+                                       ||siblingsForm.controls.Name.errors&&submittedForm}">
+
+                                        <div class="text-danger mb-3 "
+                                            *ngIf="submittedSibling&&siblingsForm.controls.Name.errors?.['required']||siblingsForm.controls.Name.touched&&siblingsForm.controls.Name.errors?.['required'] ||siblingsForm.controls.Name.errors?.['required']&&submittedForm">
+                                            This field is required
+                                        </div>
+                                    </td>
+                                    <td class=" form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="currentSchool"
+                                            [ngClass]="{'is-invalid':submittedSibling &&siblingsForm.controls.currentSchool.errors||siblingsForm.controls.currentSchool.errors&&siblingsForm.controls.currentSchool.touched
+                                       ||siblingsForm.controls.currentSchool.errors&&submittedForm}">
+
+                                        <div class="text-danger mb-3 "
+                                            *ngIf="submittedSibling&&siblingsForm.controls.currentSchool.errors?.['required']||siblingsForm.controls.currentSchool.touched&&siblingsForm.controls.currentSchool.errors?.['required'] ||siblingsForm.controls.currentSchool.errors?.['required']&&submittedForm">
+                                            This field is required
+                                        </div>
+                                    </td>
+                                    <td class=" form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="Age" [ngClass]="{'is-invalid':submittedSibling &&siblingsForm.controls.Age.errors||siblingsForm.controls.Age.errors&&siblingsForm.controls.Age.touched
+                               ||siblingsForm.controls.Age.errors&&submittedForm}">
+                                        <div class="text-danger mb-3 "
+                                            *ngIf="submittedSibling&&siblingsForm.controls.Age.errors?.['required']||siblingsForm.controls.Age.touched&&siblingsForm.controls.Age.errors?.['required'] ||siblingsForm.controls.Age.errors?.['required']&&submittedForm">
+                                            This field is required
+                                        </div>
+                                    </td>
+                                    <td class=" form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="Grade" [ngClass]="{'is-invalid':submittedSibling &&siblingsForm.controls.Grade.errors||siblingsForm.controls.Grade.errors&&siblingsForm.controls.Grade.touched
+                       ||siblingsForm.controls.Grade.errors&&submittedForm}">
+                                        <div class="text-danger mb-3 "
+                                            *ngIf="submittedSibling&&siblingsForm.controls.Grade.errors?.['required']||siblingsForm.controls.Grade.touched&&siblingsForm.controls.Grade.errors?.['required'] ||siblingsForm.controls.Grade.errors?.['required']&&submittedForm">
+                                            This field is required
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class=" px-2 ">
+
+                                            <div class="form-check mt-3 ">
+                                                <input type="radio" [value]="true" class="form-check-input"
+                                                    formControlName="siblingsInAlsson">
+                                                <label class="form-check-label fw text-dark">
+                                                    Yes
+                                                </label>
+                                            </div>
+
+                                      <div class="form-check ml-2 mt-3 ">
+                                                <input type="radio" class=" form-check-input" [value]="false"
+                                                    formControlName="siblingsInAlsson">
+                                                <label class="form-check-label fw text-dark">
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="text-danger mt-5 "
+                                            *ngIf="submittedSibling&&siblingsForm.controls.siblingsInAlsson.errors?.['required']||siblingsForm.controls.siblingsInAlsson.touched&&siblingsForm.controls.siblingsInAlsson.errors?.['required'] ||siblingsForm.controls.siblingsInAlsson.errors?.['required']&&submittedForm">
+                                            This field is required
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="p-5" id="table-row" formArrayName="siblings"
+                                *ngFor="let lessonForm of siblings.controls; let i = index">
+
+                                <td class=" form-group">
+
+                                    <input type="text" class="form-control  p-3" formControlName="NameSibling">
+                              </td>
+                                <td class=" form-group ">
+                                    <input type="text" class="form-control p-3" formControlName="currentSibling">
+                                </td>
+                                <td class=" form-group ">
+                                    <input type="text" class="form-control p-3" formControlName="AgeSibling">
+                                </td>
+                                <td class="form-group ">
+                                    <input type="text" class="form-control p-3 " formControlName="GradeSibling">
+                                </td>
+                                <td class="form-group ">
+                                    <div class=" px-2 ">
+
+                                        <div class="form-check mt-3 ">
+                                            <input type="radio" [value]="true" class="form-check-input"
+                                                formControlName="AlssonSibling">
+                                            <label class="form-check-label fw text-dark">
+                                                Yes
+                                            </label>
+                                        </div>
+
+                                  <div class="form-check ml-2 mt-3 ">
+                                            <input type="radio" class=" form-check-input" [value]="false"
+                                                formControlName="AlssonSibling">
+                                            <label class="form-check-label fw text-dark">
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <i class="fa-solid fa-trash text-danger  delete mt-4" (click)="deleteSiblings(i)"></i>
+                            </tr>
+                            </tbody>
+                        </table>
+                         <pre>
+
+
+
+
+
+
+
+
+
+
+                          </pre>
+
+                        <div class="mt-5">
+                            <div class="  f-l">
+                                <button mat-raised-button matStepperPrevious class="prevBtn">Previous</button>
+                            </div>
+                            <div class=" f-r">
+                                <button mat-button matStepperNext class=" btn btn-primary ">Next</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </mat-step>
+
+                <mat-divider></mat-divider>
+
+                <mat-step [stepControl]="otherForm" >
+
+                    <form [formGroup]="otherForm" (ngSubmit)="onSubmitOther()" class="my-5 form-design f-school">
+                        <ng-template matStepLabel>Other Information</ng-template>
+                        <h2>Other Information</h2>
+                        <h3 class="mt-2 fw">Martial Status <span class="text-danger">*</span></h3>
+                        <div class="row col-md-7 ml-5">
+                            <div class="form-check col-md-3 ml-2">
+                                <input class="form-check-input" type="radio" value="married"
+                                    [(ngModel)]="selectedMarital" formControlName="maritalStatus">
+                                <label class="form-check-label fwS">
+                                    still married
+                                </label>
+                            </div>
+                            <div class="form-check col-md-2">
+                                <input class="form-check-input" type="radio" value="Divorced"
+                                    [(ngModel)]="selectedMarital" formControlName="maritalStatus">
+                                <label class="form-check-label fwS">
+                                    Divorced
+                                </label>
+                            </div>
+                            <div class="form-check col-md-2">
+                                <input class="form-check-input" type="radio" value="Widowed"
+                                    [(ngModel)]="selectedMarital" formControlName="maritalStatus">
+                                <label class="form-check-label fwS">
+                                    Widowed
+                                </label>
+                            </div>
+                            <div class="text-danger mb-3 "
+                                *ngIf="submittedOther&&otherForm.controls.maritalStatus.errors?.['required']||otherForm.controls.maritalStatus.touched&&otherForm.controls.maritalStatus.errors?.['required'] ">
+                                This field is required
+                            </div>
+                        </div>
+                        <h3 class="mt-4 fw">Is there a step Parent? <span class="text-danger">*</span></h3>
+                        <div class="row col-md-6 ml-5">
+                            <div class="form-check col-md-2 ml-2">
+                                <input class="form-check-input" type="radio" [value]="true" [(ngModel)]="selectedVal"
+                                    formControlName="stepParent">
+                                <label class="form-check-label fwS">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="form-check col-md-3">
+                                <input class="form-check-input" type="radio" [value]="false" [(ngModel)]="selectedVal"
+                                    formControlName="stepParent">
+                                <label class="form-check-label fwS">
+                                    No
+                                </label>
+                            </div>
+
+                            <div class="text-danger mb-3 "
+                                *ngIf="submittedOther&&otherForm.controls.stepParent.errors?.['required']||otherForm.controls.stepParent.touched&&otherForm.controls.stepParent.errors?.['required'] ">
+                                This field is required
+                            </div>
+                        </div>
+                        <table class="table mb-5 mt-3 table-bordered bg-grey ">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td class=" px-5">Gender</td>
+                                    <td>Mobile Number</td>
+                                    <td>Address </td>
+                                    <td>Email</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="p-5">
+
+                                    <td class=" form-group">
+
+                                        <input type="text" class="form-control  p-3" formControlName="name">
+
+                                    </td>
+                                    <td>
+                                        <div class="pt-4">
+                                            <div class=" mt-3  d-inline float-left text-dark">
+                                                <input type="radio" value='female' formControlName="gender"
+                                                    [(ngModel)]="selectedGender"> Female
+                                            </div>
+                                            <div class=" mt-3 d-inline float-left text-dark">
+                                                <input type="radio" value='male' formControlName="gender"
+                                                    [(ngModel)]="selectedGender"> Male
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td class="form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="mobile">
+
+                                        <div class="text-danger mb-3 "
+                                            *ngIf="submittedOther&&otherForm.controls.mobile.errors?.['pattern']||otherForm.controls.mobile.touched&&otherForm.controls.mobile.errors?.['pattern']">
+                                            Mobile number is invalid
+                                        </div>
+                                    </td>
+                                    <td class=" form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="address">
+
+                                    </td>
+                                    <td class=" form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="email">
+                                        <div class="text-danger mb-3 "
+                                            *ngIf="submittedOther&&otherForm.controls.email.errors?.['email']||otherForm.controls.email.touched&&otherForm.controls.email.errors?.['email']">
+                                            email is invalid
+                                        </div>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <div class="form-group col-md-12 my-3" appearance="fill">
+                            <label for="parent name">custodial Parent Name</label>
+                            <input type="text" class="form-control" id="parent name" formControlName="parentName">
+                        </div>
+                        <h3 class="fw">Emergency contacts:</h3>
+                        <h3>please mention 2 contacts other than the child's mother and father:</h3>
+                        <table class="table mb-5 mt-3 table-bordered bg-grey ">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Relationship</td>
+                                    <td>Mobile Number</td>
+                                    <td>Address </td>
+                                    <td>Email</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="p-5">
+                                    <td class=" form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="firstName">
+
+                                        <div class="text-danger mt-3 "
+                                            *ngIf="submittedOther&&otherForm.controls.firstName.errors?.['required']||otherForm.controls.firstName.touched&&otherForm.controls.firstName.errors?.['required']">
+                                            This field is required
+
+                                        </div>
+                                    </td>
+                                    <td class=" form-group">
+                                        <input type="text" class="form-control  p-3"
+                                            formControlName="firstRelationship">
+                                        <div class="text-danger mt-3 "
+                                            *ngIf="submittedOther&&otherForm.controls.firstRelationship.errors?.['required']||otherForm.controls.firstRelationship.touched&&otherForm.controls.firstRelationship.errors?.['required']">
+                                            This field is required
+
+                                        </div>
+                                    </td>
+
+                                    <td class="form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="firstMobile">
+
+                                        <div class="text-danger mt-3 "
+                                            *ngIf="submittedOther&&otherForm.controls.firstMobile.errors?.['pattern']||otherForm.controls.firstMobile.touched&&otherForm.controls.firstMobile.errors?.['pattern']">
+                                            Mobile number is invalid
+                                        </div>
+
+                                        <div class="text-danger mt-3 "
+                                            *ngIf="submittedOther&&otherForm.controls.firstMobile.errors?.['required']||otherForm.controls.firstMobile.touched&&otherForm.controls.firstMobile.errors?.['required']">
+                                            This field is required
+                                        </div>
+
+                                    </td>
+                                    <td class=" form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="firstAddress">
+                                        <div class="text-danger mt-3 "
+                                            *ngIf="submittedOther&&otherForm.controls.firstAddress.errors?.['required']||otherForm.controls.firstAddress.touched&&otherForm.controls.firstAddress.errors?.['required']">
+                                            This field is required
+                                        </div>
+                                    </td>
+                                    <td class=" form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="firstEmail">
+
+                                        <div class="text-danger mb-3 "
+                                            *ngIf="submittedOther&&otherForm.controls.firstEmail.errors?.['email']||otherForm.controls.firstEmail.touched&&otherForm.controls.firstEmail.errors?.['email']">
+                                            email is invalid
+                                        </div>
+                                        <div class="text-danger mt-3 "
+                                            *ngIf="submittedOther&&otherForm.controls.firstEmail.errors?.['required']||otherForm.controls.firstEmail.touched&&otherForm.controls.firstEmail.errors?.['required']">
+                                            This field is required
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr class="p-5">
+                                    <td class=" form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="secondName">
+
+                                        <div class="text-danger mt-3 "
+                                            *ngIf="submittedOther&&otherForm.controls.secondName.errors?.['required']||otherForm.controls.secondName.touched&&otherForm.controls.secondName.errors?.['required']">
+                                            This field is required
+
+                                        </div>
+                                    </td>
+                                    <td class=" form-group">
+                                        <input type="text" class="form-control  p-3"
+                                            formControlName="secondRelationship">
+                                        <div class="text-danger mt-3 "
+                                            *ngIf="submittedOther&&otherForm.controls.secondRelationship.errors?.['required']||otherForm.controls.secondRelationship.touched&&otherForm.controls.secondRelationship.errors?.['required']">
+                                            This field is required
+
+                                        </div>
+                                    </td>
+
+                                    <td class="form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="secondMobile">
+                                        <div
+                                            *ngIf="submittedOther &&otherForm.controls.secondMobile.errors||otherForm.controls.secondMobile.errors&&otherForm.controls.secondMobile.touched ">
+                                            <div class="text-danger mt-3 "
+                                                *ngIf="submittedOther&&otherForm.controls.secondMobile.errors?.['pattern']||otherForm.controls.secondMobile.touched&&otherForm.controls.secondMobile.errors?.['pattern']">
+                                                Mobile number is invalid
+                                            </div>
+
+                                            <div class="text-danger mt-3 "
+                                                *ngIf="submittedOther&&otherForm.controls.secondMobile.errors?.['required']||otherForm.controls.secondMobile.touched&&otherForm.controls.secondMobile.errors?.['required']">
+                                                This field is required
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class=" form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="secondAddress">
+                                        <div class="text-danger mt-3 "
+                                            *ngIf="submittedOther&&otherForm.controls.secondAddress.errors?.['required']||otherForm.controls.secondAddress.touched&&otherForm.controls.secondAddress.errors?.['required']">
+                                            This field is required
+                                        </div>
+                                    </td>
+                                    <td class=" form-group">
+                                        <input type="text" class="form-control  p-3" formControlName="secondEmail">
+                                        <div
+                                            *ngIf="submittedOther &&otherForm.controls.secondEmail.errors||otherForm.controls.secondEmail.errors&&otherForm.controls.secondEmail.touched ">
+                                            <div class="text-danger mb-3 "
+                                                *ngIf="submittedOther&&otherForm.controls.secondEmail.errors?.['email']||otherForm.controls.secondEmail.touched&&otherForm.controls.secondEmail.errors?.['email']">
+                                                email is invalid
+                                            </div>
+                                            <div class="text-danger mt-3 "
+                                                *ngIf="submittedOther&&otherForm.controls.secondEmail.errors?.['required']||otherForm.controls.secondEmail.touched&&otherForm.controls.secondEmail.errors?.['required']">
+                                                This field is required
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="my-3 row col-md-6 ml-5">
+                            <h3 class="fw">Bus Required <span class="text-danger">*</span></h3>
+                            <div class="form-check col-md-2 ml-2">
+                                <input type="radio" [value]="true" class="form-check-input" [(ngModel)]="selectedBus"
+                                    formControlName="busRequired">
+                                <label class="form-check-label fwS text-dark">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="form-check col-md-3">
+                                <input type="radio" [value]="false" class="form-check-input" [(ngModel)]="selectedBus"
+                                    formControlName="busRequired">
+                                <label class="form-check-label fwS text-dark">
+                                    No
+                                </label>
+                            </div>
+
+                            <div class="text-danger mt-3 "
+                                *ngIf="submittedOther&&otherForm.controls.busRequired.errors?.['required']||otherForm.controls.busRequired.touched&&otherForm.controls.busRequired.errors?.['required']">
+                                This Field is required
+                            </div>
+
+                        </div>
+                        <div class="form-group col-md-12 mt-3">
+                            <label for="busAddress" class="fw">Bus Address<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="busAddress" formControlName="busAddress">
+                            <div *ngIf="selectedBus == true">
+                                <div class="text-danger mb-3 "
+                                    *ngIf="submittedOther&&otherForm.controls.busAddress.errors?.['required']||otherForm.controls.busAddress.touched&&otherForm.controls.busAddress.errors?.['required']">
+                                    This Field is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-3 row col-md-6 ml-5">
+                            <h3 class="fw">Permanent or recurring health problem <span class="text-danger">*</span></h3>
+                            <div class="form-check col-md-2 ml-2">
+                                <input type="radio" [value]="true" class="form-check-input" [(ngModel)]="selectedHealth"
+                                    formControlName="healthProblem">
+                                <label class="form-check-label fwS text-dark">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="form-check col-md-3">
+                                <input type="radio" [value]="false" class="form-check-input"
+                                    [(ngModel)]="selectedHealth" formControlName="healthProblem">
+                                <label class="form-check-label fwS text-dark">
+                                    No
+                                </label>
+                            </div>
+
+                            <div class="text-danger mb-3 "
+                                *ngIf="submittedOther&&otherForm.controls.healthProblem.errors?.['required']||otherForm.controls.healthProblem.touched&&otherForm.controls.healthProblem.errors?.['required']">
+                                This Field is required
+
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12 mt-3">
+                            <label for="healthProblemDetails" class="fw">Health problem details</label>
+                            <input type="text" class="form-control" id="healthProblemDetails"
+                                formControlName="healthProblemDetails">
+                            <div *ngIf="selectedHealth == true">
+                                <div class="text-danger mt-3 "
+                                    *ngIf="submittedOther&&otherForm.controls.healthProblemDetails.errors?.['required']||otherForm.controls.healthProblemDetails.touched&&otherForm.controls.healthProblemDetails.errors?.['required']">
+                                    This Field is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row mt-3 mb-5">
+                            <div class="form-group col-md-6">
+                                <label for="doctorName" class="fw">Doctor Name</label>
+                                <input type="text" class="form-control" id="doctorName" formControlName="doctorName">
+                                <div *ngIf="selectedHealth == true">
+                                    <div class="text-danger mt-3 "
+                                        *ngIf="submittedOther&&otherForm.controls.doctorName.errors?.['required']||otherForm.controls.doctorName.touched&&otherForm.controls.doctorName.errors?.['required']">
+                                        This Field is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="doctorPhone" class="fw">Doctor phone</label>
+                                <input type="text" class="form-control" id="doctorPhone" formControlName="doctorPhone">
+                                <div *ngIf="selectedHealth == true">
+                                    <div class="text-danger mt-3 "
+                                        *ngIf="submittedOther&&otherForm.controls.doctorPhone.errors?.['required']||otherForm.controls.doctorPhone.touched&&otherForm.controls.doctorPhone.errors?.['required']">
+                                        This Field is required
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="mt-3">
+                            <div class="  f-l">
+                                <button mat-raised-button matStepperPrevious class="prevBtn">Previous</button>
+                            </div>
+                            <div class=" f-r">
+                                <button mat-button matStepperNext class=" btn btn-primary ">Next</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </mat-step>
+
+                <mat-divider></mat-divider>
+
+                <mat-step [stepControl]="conditionsForm">
+                    <form [formGroup]="conditionsForm "
+                        (ngSubmit)='submitInsertForm(studentForm, schoolForm, parentForm,siblingsForm ,otherForm, conditionsForm,schools,siblings)'
+                        class="mb-5 form-design f-school">
+                        <ng-template matStepLabel>Terms & Conditions</ng-template>
+                        <h2>Terms & Conditions</h2>
+                        <pre>
+
+
+
+
+
+
+
+                        </pre>
+                        <div class="check-terms ">
+                            <input class="form-check-input mx-2 " [value]="true" type="checkbox"
+                                formControlName="agree">
+                            <label class="form-check-label fw " for="flexCheckDefault">
+                                I agree to the terms and conditions
+                            </label>
+                            <div class="text-danger mb-3 "
+                                *ngIf="submitted&&conditionsForm.controls.agree.errors?.['required']||conditionsForm.controls.agree.touched&&conditionsForm.controls.agree.errors?.['required'] ">
+                                This field is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 mt-3 mb-5">
+                            <label for="sign" class="fw">Sign <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="sign" formControlName="sign">
+                            <div class="text-danger mb-3 "
+                                *ngIf="submitted&&conditionsForm.controls.sign.errors?.['required']||conditionsForm.controls.sign.touched&&conditionsForm.controls.sign.errors?.['required'] ">
+                                This field is required
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <div class="  f-l">
+                                <button mat-raised-button matStepperPrevious class="prevBtn">Previous</button>
+                            </div>
+                            <div class=" f-r">
+                                <button mat-button class=" btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+
+
+                    </form>
+                    <h1 *ngIf="registerSucess"> Data Saved Successfully </h1>
+
+                </mat-step>
+            </mat-horizontal-stepper>
+        </div>
+    </div>
+</div>

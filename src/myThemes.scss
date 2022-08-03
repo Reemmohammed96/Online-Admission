@@ -1,0 +1,49 @@
+
+
+// @import '~@angular/material/theming';
+// @include mat-core();
+// $my-theme-primary: mat-palette($mat-indigo);
+// $my-theme-accent:  mat-palette($mat-green, A200, A100, A400);    
+// $my-theme-app-warn:mat-palette($mat-red); 
+// $my-theme: mat-light-theme($my-theme-primary,$my-theme-accent, $my-theme-app-warn);    
+// @include angular-material-theme($my-theme);   
+@import '~@angular/material/theming';
+ @include mat-core();
+
+ .my-theme {
+     $my-theme-primary: mat-palette($mat-blue, A100);
+     $my-theme-accent: mat-palette($mat-red, A200, A100, A400);
+     $my-theme: mat-light-theme($my-theme-primary, $my-theme-accent);
+
+     @include angular-material-theme($my-theme);
+ }
+ .my-theme .mat-step-header .mat-step-icon{
+    background-color: white;
+ }
+ .my-theme .mat-step-header .mat-step-icon-selected,
+ .my-theme .mat-step-header .mat-step-icon-state-done, .my-theme .mat-step-header .mat-step-icon-state-edit{
+  color:rgb(79, 187, 250); 
+  background-color: rgb(228, 228, 228);
+}
+.my-theme .mat-step-header .mat-step-label.mat-step-label-active {
+    color:rgb(79, 187, 250);
+}
+.mat-icon notranslate material-icons mat-icon-no-color ng-star-inserted{
+
+}
+    .my-theme .mat-step-header .mat-step-label, .my-theme .mat-step-header .mat-step-optional{
+        color:black;
+    }
+  
+    .my-theme .mat-horizontal-stepper-header::before,
+     .my-theme .mat-horizontal-stepper-header::after, .my-theme .mat-stepper-horizontal-line:active{
+        border-top-color:rgba(90, 131, 245, 0.223);
+    } 
+  
+
+
+.my-theme .mat-step-header .mat-step-label.mat-step-label-active{
+    
+}
+
+
